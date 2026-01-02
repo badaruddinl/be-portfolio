@@ -13,41 +13,45 @@ export const init = async (): Promise<FastifyInstance> => {
   const app = fastify({
     genReqId: (req) => (req.headers['x-request-id'] as string) || uuidv7(),
     disableRequestLogging: false,
-    logger: {
-      transport: {
-        target: 'pino-pretty',
-        options: {
-          colorize: true,
-          translateTime: 'SYS:HH:MM:ss',
-          ignore: 'pid,hostname',
-          messageFormat: '{req.method} {req.url} {res.statusCode} ({responseTime}ms) {msg}',
-        },
-      },
-      serializers: {
-        req(request: FastifyRequest) {
-          const body = request.body ? { ...(request.body as Record<string, any>) } : {}
-          if (body['password']) body['password'] = '********'
-          if (body['token']) body['token'] = '********'
+    logger:
+      process.env.NODE_ENV !== 'production'
+        ? {
+            transport: {
+              target: 'pino-pretty',
+              options: {
+                colorize: true,
+                translateTime: 'SYS:HH:MM:ss',
+                ignore: 'pid,hostname',
+                messageFormat: '{req.method} {req.url} {res.statusCode} ({responseTime}ms) {msg}',
+              },
+            },
+            serializers: {
+              req(request: FastifyRequest) {
+                const body = request.body ? { ...(request.body as Record<string, any>) } : {}
+                if (body['password']) body['password'] = '********'
+                if (body['token']) body['token'] = '********'
 
-          return {
-            method: request.method,
-            url: request.url,
-            body,
+                return {
+                  method: request.method,
+                  url: request.url,
+                  body,
+                }
+              },
+              res(reply: FastifyReply) {
+                return {
+                  statusCode: reply.statusCode,
+                  message: reply.message,
+                }
+              },
+            },
           }
-        },
-        res(reply: FastifyReply) {
-          return {
-            statusCode: reply.statusCode,
-            message: reply.message,
-          }
-        },
-      },
-    },
+        : true,
   })
 
-  await app.register(fastifySwagger, swaggerConfig)
-
-  await app.register(fastifySwaggerUi, swaggerUiConfig)
+  if (process.env.NODE_ENV !== 'production') {
+    await app.register(fastifySwagger, swaggerConfig)
+    await app.register(fastifySwaggerUi, swaggerUiConfig)
+  }
 
   await errorHandler(app)
 
