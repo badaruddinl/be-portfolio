@@ -1,5 +1,3 @@
-import routeHelper from "./route.helper";
+import routeHelper from './route.helper'
 
-export {
-    routeHelper
-}
+export { routeHelper }

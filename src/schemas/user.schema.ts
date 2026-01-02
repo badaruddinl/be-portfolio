@@ -25,7 +25,7 @@ export class User {
   @Column({ type: 'varchar', length: 255 })
   password!: string
 
-  @ManyToOne(() => Role, { eager: true })
+  @ManyToOne(() => Role)
   @JoinColumn({ name: 'role_id' })
   role!: Role
 

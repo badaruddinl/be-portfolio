@@ -2,8 +2,7 @@ import 'reflect-metadata'
 
 import { DataSource } from 'typeorm'
 import { config } from 'dotenv'
-import { User } from '@/schemas'
-import { Role } from '@/schemas/role.schema'
+import * as Schema from '@/schemas'
 
 config()
 
@@ -21,7 +20,7 @@ export const AppDataSource = new DataSource({
   password: DB_PASSWORD,
   database: DB_NAME,
 
-  entities: [User, Role],
+  entities: Object.values(Schema),
   migrations: ['src/migrations/**/*.ts'],
   synchronize: false,
   logging: ['error'],
