@@ -11,6 +11,9 @@ export class SocialType {
   @Column({ type: 'varchar', length: 100 })
   label!: string
 
+  @Column({ type: 'boolean', default: false })
+  is_active!: boolean
+
   @Column({ type: 'varchar', length: 100, nullable: true })
   icon!: string | null
 

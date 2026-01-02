@@ -13,6 +13,9 @@ export class TechStackVersion {
   @JoinColumn({ name: 'tech_id' })
   tech!: TechStack
 
+  @Column({ type: 'boolean', default: false })
+  is_active!: boolean
+
   @Column({ type: 'varchar', length: 50 })
   version!: string
 

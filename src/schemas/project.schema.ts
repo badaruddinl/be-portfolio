@@ -14,6 +14,9 @@ export class Project {
   @Column({ type: 'varchar', length: 255 })
   tag!: string
 
+  @Column({ type: 'boolean', default: false })
+  selected_work!: boolean
+
   @Column({ type: 'varchar', length: 10 })
   year!: string
 
