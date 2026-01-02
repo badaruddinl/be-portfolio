@@ -17,6 +17,9 @@ export class Project {
   @Column({ type: 'boolean', default: false })
   selected_work!: boolean
 
+  @Column({ type: 'boolean', default: false })
+  is_active!: boolean
+
   @Column({ type: 'varchar', length: 10 })
   year!: string
 
