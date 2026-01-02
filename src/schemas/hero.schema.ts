@@ -15,7 +15,7 @@ export class Hero {
   @Column({ type: 'varchar', length: 255 })
   profile_image!: string
 
-  @Column({ type: 'varchar', length: 255, default: false })
+  @Column({ type: 'boolean', default: false })
   avail_hire!: boolean
 
   @Column({ type: 'varchar', length: 255 })
