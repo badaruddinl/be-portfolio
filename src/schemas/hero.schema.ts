@@ -1,15 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import { HeroSocial } from './hero-social.schema'
+import { HeroRole } from './hero-role.schema'
 
 @Entity()
 export class Hero {
   @PrimaryGeneratedColumn('uuid')
   id!: string
 
-  @Column({ type: 'text' })
+  @Column('text')
   name!: string
 
-  @Column({ type: 'text' })
+  @Column('text')
   description!: string
 
   @Column({ type: 'varchar', length: 255 })
@@ -24,8 +25,8 @@ export class Hero {
   @OneToMany(() => HeroSocial, (s) => s.hero)
   socials!: HeroSocial[]
 
-  @Column('simple-array')
-  roles!: string[]
+  @OneToMany(() => HeroRole, (r) => r.hero, { cascade: true })
+  roles!: HeroRole[]
 
   @Column({ type: 'varchar', nullable: true })
   cv_link!: string | null
