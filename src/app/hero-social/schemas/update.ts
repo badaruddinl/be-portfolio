@@ -1,7 +1,7 @@
 import { schemaBuilder } from '@/utils/schemaBuilder.util'
 
-export const rawUpdateHeroRoleSchema = schemaBuilder(
-  { moduleFunction: 'Update Hero Role', moduleDescription: 'update an existing hero role' },
+export const rawUpdateHeroSocialSchema = schemaBuilder(
+  { moduleFunction: 'Update Hero Social', moduleDescription: 'update hero social link' },
   {
     request: {
       security: [],
@@ -14,9 +14,9 @@ export const rawUpdateHeroRoleSchema = schemaBuilder(
       },
       body: {
         type: 'object',
-        required: ['name'],
         properties: {
-          name: { type: 'string', minLength: 2 },
+          socialTypeId: { type: 'string' },
+          url: { type: 'string', format: 'uri' },
         },
       },
     },
