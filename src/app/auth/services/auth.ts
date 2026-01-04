@@ -3,7 +3,7 @@ import { AuthRepository } from '../repositories/auth'
 import { hashData, verifyData } from '@/utils/hashData.util'
 import { RoleRepository } from '@/app/role/repositories/role'
 import { signAccessToken } from '@/services/token/sign'
-import { BaqRequestError, UnauthorizedError } from '@/errorDecorator/fastifyError'
+import { BadRequestError, UnauthorizedError } from '@/errorDecorator/fastifyError'
 
 export class AuthService {
   private readonly authRepository: AuthRepository
@@ -48,7 +48,7 @@ export class AuthService {
     const existingUser = await this.authRepository.findByUsername(payload.username)
 
     if (existingUser) {
-      throw new BaqRequestError('Username already exists')
+      throw new BadRequestError('Username already exists')
     }
 
     const hashedPassword = await hashData(payload.password)
@@ -56,7 +56,7 @@ export class AuthService {
     const role = await this.roleRepository.findByRole('user')
 
     if (!role) {
-      throw new BaqRequestError(`Role doesn't exists`)
+      throw new BadRequestError(`Role doesn't exists`)
     }
 
     return this.authRepository.create({

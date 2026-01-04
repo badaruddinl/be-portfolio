@@ -1,2 +1,3 @@
-import homeContentController from './home'
-export { homeContentController }
+import getHomeContentController from './get-home'
+
+export { getHomeContentController }

@@ -4,7 +4,6 @@ export const rawUpdateHeroRoleSchema = schemaBuilder(
   { moduleFunction: 'Update Hero Role', moduleDescription: 'update an existing hero role' },
   {
     request: {
-      security: [],
       params: {
         type: 'object',
         properties: {

@@ -4,7 +4,6 @@ export const rawCreateSocialTypeSchema = schemaBuilder(
   { moduleFunction: 'Create Social Type', moduleDescription: 'create new social type' },
   {
     request: {
-      security: [],
       body: {
         type: 'object',
         required: ['code', 'label'],

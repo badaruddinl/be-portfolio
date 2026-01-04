@@ -4,7 +4,6 @@ export const rawCreateHeroRoleSchema = schemaBuilder(
   { moduleFunction: 'Create Hero Role', moduleDescription: 'create a new hero role' },
   {
     request: {
-      security: [],
       body: {
         type: 'object',
         required: ['heroId', 'name'],

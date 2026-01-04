@@ -4,7 +4,6 @@ export const rawCreateHeroSchema = schemaBuilder(
   { moduleFunction: 'Create Hero', moduleDescription: 'create portfolio hero' },
   {
     request: {
-      security: [],
       body: {
         type: 'object',
         required: ['name', 'description', 'profile_image', 'based'],

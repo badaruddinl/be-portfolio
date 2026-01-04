@@ -4,7 +4,6 @@ export const rawUpdateSocialTypeSchema = schemaBuilder(
   { moduleFunction: 'Update Social Type', moduleDescription: 'update existing social type' },
   {
     request: {
-      security: [],
       params: {
         type: 'object',
         properties: { id: { type: 'string' } },

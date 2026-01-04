@@ -4,7 +4,6 @@ export const rawCreateHeroSocialSchema = schemaBuilder(
   { moduleFunction: 'Create Hero Social', moduleDescription: 'create a new hero social link' },
   {
     request: {
-      security: [],
       body: {
         type: 'object',
         required: ['heroId', 'socialTypeId', 'url'],

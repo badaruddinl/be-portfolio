@@ -1,7 +1,8 @@
-export interface HomeContentDTO {
-  hero: any
-  socials: any[]
-  tech: any[]
-  projects: any[]
-  jobs: any[]
+import { Hero, Job, Project, TechStack } from '@/schemas'
+
+export interface HomeContentDto {
+  hero: Hero | null
+  featured_projects: Project[]
+  experiences: Job[]
+  tech_stack: TechStack[]
 }

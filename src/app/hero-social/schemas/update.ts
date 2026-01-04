@@ -4,7 +4,6 @@ export const rawUpdateHeroSocialSchema = schemaBuilder(
   { moduleFunction: 'Update Hero Social', moduleDescription: 'update hero social link' },
   {
     request: {
-      security: [],
       params: {
         type: 'object',
         properties: {

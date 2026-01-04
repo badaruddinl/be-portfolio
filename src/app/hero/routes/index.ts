@@ -10,7 +10,6 @@ export default async function heroRoutes(fastify: FastifyInstance) {
       url: '/hero',
       schema: getHeroSchema,
       handler: getHeroController,
-      auth: false,
     }),
   )
 
@@ -20,7 +19,6 @@ export default async function heroRoutes(fastify: FastifyInstance) {
       url: '/hero',
       schema: createHeroSchema,
       handler: createHeroController,
-      auth: false,
     }),
   )
 
@@ -30,7 +28,6 @@ export default async function heroRoutes(fastify: FastifyInstance) {
       url: '/hero/:id',
       schema: updateHeroSchema,
       handler: updateHeroController,
-      auth: false,
     }),
   )
 }

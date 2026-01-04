@@ -20,7 +20,6 @@ export default async function heroSocialRoutes(fastify: FastifyInstance) {
       url: '/hero/:heroId/socials',
       schema: getHeroSocialsSchema,
       handler: getHeroSocialsController,
-      auth: false,
     }),
   )
 
@@ -30,7 +29,6 @@ export default async function heroSocialRoutes(fastify: FastifyInstance) {
       url: '/hero/socials',
       schema: createHeroSocialSchema,
       handler: createHeroSocialController,
-      auth: false,
     }),
   )
 
@@ -40,7 +38,6 @@ export default async function heroSocialRoutes(fastify: FastifyInstance) {
       url: '/hero/socials/:id',
       schema: updateHeroSocialSchema,
       handler: updateHeroSocialController,
-      auth: false,
     }),
   )
 
@@ -50,7 +47,6 @@ export default async function heroSocialRoutes(fastify: FastifyInstance) {
       url: '/hero/socials/:id',
       schema: deleteHeroSocialSchema,
       handler: deleteHeroSocialController,
-      auth: false,
     }),
   )
 }

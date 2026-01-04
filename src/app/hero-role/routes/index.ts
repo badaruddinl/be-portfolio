@@ -21,7 +21,6 @@ export default async function heroRoleRoutes(fastify: FastifyInstance) {
       url: '/hero/roles',
       schema: createHeroRoleSchema,
       handler: createHeroRoleController,
-      auth: false,
     }),
   )
 
@@ -31,7 +30,6 @@ export default async function heroRoleRoutes(fastify: FastifyInstance) {
       url: '/hero/:heroId/roles',
       schema: getHeroRolesSchema,
       handler: listHeroRolesController,
-      auth: false,
     }),
   )
 
@@ -41,7 +39,6 @@ export default async function heroRoleRoutes(fastify: FastifyInstance) {
       url: '/hero/roles/:id',
       schema: updateHeroRoleSchema,
       handler: updateHeroRoleController,
-      auth: false,
     }),
   )
 
@@ -51,7 +48,6 @@ export default async function heroRoleRoutes(fastify: FastifyInstance) {
       url: '/hero/roles/:id',
       schema: deleteHeroRoleSchema,
       handler: deleteHeroRoleController,
-      auth: false,
     }),
   )
 }

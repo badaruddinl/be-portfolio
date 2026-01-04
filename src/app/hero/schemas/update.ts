@@ -4,7 +4,6 @@ export const rawUpdateHeroSchema = schemaBuilder(
   { moduleFunction: 'Update Hero', moduleDescription: 'update hero profile' },
   {
     request: {
-      security: [],
       params: {
         type: 'object',
         properties: { id: { type: 'string' } },

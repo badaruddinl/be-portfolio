@@ -21,7 +21,6 @@ export default async function socialTypeRoutes(fastify: FastifyInstance) {
       url: '/social-types',
       schema: getSocialTypesSchema,
       handler: getSocialTypesController,
-      auth: false,
     }),
   )
 
@@ -31,7 +30,6 @@ export default async function socialTypeRoutes(fastify: FastifyInstance) {
       url: '/social-types',
       schema: createSocialTypeSchema,
       handler: createSocialTypeController,
-      auth: false,
     }),
   )
 
@@ -41,7 +39,6 @@ export default async function socialTypeRoutes(fastify: FastifyInstance) {
       url: '/social-types/:id',
       schema: updateSocialTypeSchema,
       handler: updateSocialTypeController,
-      auth: false,
     }),
   )
 
@@ -51,7 +48,6 @@ export default async function socialTypeRoutes(fastify: FastifyInstance) {
       url: '/social-types/:id',
       schema: deleteSocialTypeSchema,
       handler: deleteSocialTypeController,
-      auth: false,
     }),
   )
 }
